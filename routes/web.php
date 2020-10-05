@@ -21,18 +21,14 @@ $router->group(['prefix' => '/endereco'], function () use ($router) {
     $router->get('/{id_endereco}', 'EnderecoController@endereco_especifico');
 });
 
-//$router->group(['prefix' => '/cidades'], function () use ($router) {
-//
-//    /*Listagem de Cidades*/
-//    $router->get('/cidades', function () {
-//
-//    });
-//
-//    $router->get('/{id_cidade}', function ($id_cidade) {
-//        return $id_cidade;
-//    });
-//});
-//
+$router->group(['prefix' => '/cidade'], function () use ($router) {
+
+    /*Listagem de Cidades*/
+    $router->get('/', 'CidadeController@index');
+
+    $router->get('/{id_cidade}', 'CidadeController@cidade_especifica');
+});
+
 //$router->group(['prefix' => '/estados'], function () use ($router) {
 //
 //    /*Listagem de Estados*/
