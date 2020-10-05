@@ -29,18 +29,14 @@ $router->group(['prefix' => '/cidade'], function () use ($router) {
     $router->get('/{id_cidade}', 'CidadeController@cidade_especifica');
 });
 
-//$router->group(['prefix' => '/estados'], function () use ($router) {
-//
-//    /*Listagem de Estados*/
-//    $router->get('/estados', function () {
-//
-//    });
-//
-//    $router->get('/{id_estado}', function ($id_estado) {
-//        return $id_estado;
-//    });
-//});
-//
+$router->group(['prefix' => '/estado'], function () use ($router) {
+
+    /*Listagem de Estados*/
+    $router->get('/', 'EstadoController@index');
+
+    $router->get('/{id_estado}', 'EstadoController@estado_especifico');
+});
+
 //$router->group(['prefix' => '/estados'], function () use ($router) {
 //
 //    /*Obter total de usuários cadastrados por cidade*/
