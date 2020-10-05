@@ -27,6 +27,9 @@ $router->group(['prefix' => '/cidade'], function () use ($router) {
     $router->get('/', 'CidadeController@index');
 
     $router->get('/{id_cidade}', 'CidadeController@cidade_especifica');
+
+    /*Obter total de usuários cadastrados por cidade*/
+    $router->get('/quantidade/{nome}', 'CidadeController@countCidade' );
 });
 
 $router->group(['prefix' => '/estado'], function () use ($router) {
@@ -35,17 +38,7 @@ $router->group(['prefix' => '/estado'], function () use ($router) {
     $router->get('/', 'EstadoController@index');
 
     $router->get('/{id_estado}', 'EstadoController@estado_especifico');
-});
 
-//$router->group(['prefix' => '/estados'], function () use ($router) {
-//
-//    /*Obter total de usuários cadastrados por cidade*/
-//    $router->get('/total', function () {
-//
-//    });
-//
-//    /*Obter total de usuários cadastrados por estado*/
-//    $router->get('/total', function () {
-//
-//    });
-//});
+    /*Obter total de usuários cadastrados por estado*/
+    $router->get('/quantidade/{$nome}', 'EstadoController@countEstado' );
+});
