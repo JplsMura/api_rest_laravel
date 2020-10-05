@@ -6,16 +6,29 @@ namespace App\Http\Controllers;
 use App\Models\Endereco;
 use App\Repositories\RepositorieEndereco;
 
+/**
+ * Class EnderecoController
+ * @package App\Http\Controllers
+ */
 class EnderecoController
 {
+    /**
+     * @var RepositorieEndereco
+     */
     private $endereco;
 
+    /**
+     * EnderecoController constructor.
+     */
     public function __construct()
     {
         $this->endereco = new RepositorieEndereco();
     }
 
 
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function index()
     {
         try {
@@ -44,6 +57,10 @@ class EnderecoController
         }
     }
 
+    /**
+     * @param $id_endereco
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function endereco_especifico($id_endereco)
     {
         try {

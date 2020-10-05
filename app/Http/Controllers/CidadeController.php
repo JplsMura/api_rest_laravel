@@ -6,15 +6,28 @@ namespace App\Http\Controllers;
 use App\Models\Cidade;
 use App\Repositories\RepositorieCidade;
 
+/**
+ * Class CidadeController
+ * @package App\Http\Controllers
+ */
 class CidadeController
 {
+    /**
+     * @var RepositorieCidade
+     */
     private $cidade;
 
+    /**
+     * CidadeController constructor.
+     */
     public function __construct()
     {
         $this->cidade = new RepositorieCidade();
     }
 
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function index()
     {
         try {
@@ -44,6 +57,10 @@ class CidadeController
         }
     }
 
+    /**
+     * @param $id_cidade
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function cidade_especifica($id_cidade)
     {
         try {
@@ -73,6 +90,10 @@ class CidadeController
         }
     }
 
+    /**
+     * @param $nome
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function countCidade($nome)
     {
 

@@ -6,15 +6,28 @@ namespace App\Http\Controllers;
 
 use App\Repositories\RepositorieEstado;
 
+/**
+ * Class EstadoController
+ * @package App\Http\Controllers
+ */
 class EstadoController
 {
+    /**
+     * @var RepositorieEstado
+     */
     private $estado;
 
+    /**
+     * EstadoController constructor.
+     */
     public function __construct()
     {
         $this->estado = new RepositorieEstado();
     }
 
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function index()
     {
         try {
@@ -43,6 +56,10 @@ class EstadoController
         }
     }
 
+    /**
+     * @param $id_estado
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function estado_especifico($id_estado)
     {
         try {
@@ -72,6 +89,10 @@ class EstadoController
         }
     }
 
+    /**
+     * @param $nome
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function countEstado($nome)
     {
         try {

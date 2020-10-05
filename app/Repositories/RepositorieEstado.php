@@ -4,8 +4,15 @@ namespace App\Repositories;
 
 use App\Models\Estado;
 
+/**
+ * Class RepositorieEstado
+ * @package App\Repositories
+ */
 class RepositorieEstado
 {
+    /**
+     * @return Estado[]|\Illuminate\Database\Eloquent\Collection
+     */
     public function all()
     {
         $all = Estado::all();
@@ -13,6 +20,10 @@ class RepositorieEstado
         return $all;
     }
 
+    /**
+     * @param $id_estado
+     * @return mixed
+     */
     public function estado_id($id_estado)
     {
         $estado = Estado::where('id_estado', $id_estado)->first();
@@ -20,6 +31,11 @@ class RepositorieEstado
         return $estado;
     }
 
+    /**
+     * @param $nome
+     * @param $pais
+     * @return mixed
+     */
     public function createEstado($nome, $pais)
     {
         $createdEstado = Estado::create([
@@ -30,6 +46,10 @@ class RepositorieEstado
         return $createdEstado;
     }
 
+    /**
+     * @param $nome
+     * @return mixed
+     */
     public function countEstado($nome)
     {
         $estadoCount = Estado::where('nome', $nome)->count();

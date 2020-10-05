@@ -11,13 +11,32 @@ use App\Repositories\RepositorieEstado;
 use App\Repositories\RepositorieUsuario;
 use Illuminate\Support\Facades\Validator;
 
+/**
+ * Class UserController
+ * @package App\Http\Controllers
+ */
 class UserController extends Controller
 {
+    /**
+     * @var RepositorieCidade
+     */
     private $cidade;
+    /**
+     * @var RepositorieEndereco
+     */
     private $endereco;
+    /**
+     * @var RepositorieEstado
+     */
     private $estado;
+    /**
+     * @var RepositorieUsuario
+     */
     private $usuario;
 
+    /**
+     * UserController constructor.
+     */
     public  function  __construct(){
         $this->cidade = new RepositorieCidade();
         $this->endereco = new RepositorieEndereco();
@@ -25,6 +44,9 @@ class UserController extends Controller
         $this->usuario = new RepositorieUsuario();
     }
 
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function index()
     {
         $list = $this->usuario->all();
@@ -35,6 +57,10 @@ class UserController extends Controller
         ]);
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function create(Request $request)
     {
         try {
@@ -83,6 +109,11 @@ class UserController extends Controller
         }
     }
 
+    /**
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function update(Request $request, $id)
     {
         try{
@@ -119,6 +150,10 @@ class UserController extends Controller
         }
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function destroy($id)
     {
         try {
