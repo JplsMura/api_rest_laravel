@@ -29,4 +29,11 @@ class RepositorieEstado
 
         return $createdEstado;
     }
+
+    public function countEstado($nome)
+    {
+        $estadoCount = Estado::where('nome', $nome)->count();
+
+        return $estadoCount;
+    }
 }
