@@ -72,4 +72,34 @@ class CidadeController
             ]);
         }
     }
+
+    public function countCidade($nome)
+    {
+
+        try {
+
+            $cidadeCount = $this->cidade->countCidade($nome);
+
+            if(!empty($cidadeCount)){
+                return response()->json([
+                    'status' => true,
+                    'resData' => $cidadeCount
+                ]);
+            }
+
+            return response()->json([
+                'status' => false,
+                'resData' => 'Nenhum Usuário cadastrado nesta cidade',
+            ]);
+
+        }catch (\Exception $e){
+            return response()->json([
+                'status' => false,
+                'resData' => [
+                    'msg' => 'Erro ao buscar quantidade de usuários por cidade!',
+                    'data' => $e->getMessage()
+                ]
+            ]);
+        }
+    }
 }
