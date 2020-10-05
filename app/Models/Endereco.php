@@ -9,6 +9,8 @@ class Endereco extends Model
 {
     protected $table = 'endereco';
 
+    public $timestamps = false;
+
     /**
      * The attributes that are mass assignable.
      *

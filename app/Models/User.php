@@ -9,6 +9,8 @@ class User extends Model
 
     protected $table = 'usuario';
 
+    public $timestamps = false;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -16,6 +18,9 @@ class User extends Model
      */
     protected $fillable = [
         'nome',
+        'codendereco',
+        'codcidade',
+        'codestado'
     ];
 
     /**

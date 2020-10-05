@@ -8,6 +8,8 @@ class Cidade extends Model
 {
     protected $table = 'cidade';
 
+    public $timestamps = false;
+
     /**
      * The attributes that are mass assignable.
      *
