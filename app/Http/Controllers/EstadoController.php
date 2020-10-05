@@ -71,4 +71,33 @@ class EstadoController
             ]);
         }
     }
+
+    public function countEstado($nome)
+    {
+        try {
+
+            $estadoCount = $this->estado->countEstado($nome);
+
+            if(!empty($estadoCount)){
+                return response()->json([
+                    'status' => true,
+                    'resData' => $estadoCount
+                ]);
+            }
+
+            return response()->json([
+                'status' => false,
+                'resData' => 'Nenhum Usuário cadastrado neste estado',
+            ]);
+
+        }catch (\Exception $e){
+            return response()->json([
+                'status' => false,
+                'resData' => [
+                    'msg' => 'Erro ao buscar quantidade de usuários por estado!',
+                    'data' => $e->getMessage()
+                ]
+            ]);
+        }
+    }
 }
