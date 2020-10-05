@@ -30,4 +30,11 @@ class RepositorieCidade
 
         return $createdCidade;
     }
+
+    public function countCidade($nome)
+    {
+        $cidadeCount = Cidade::where('nome', $nome)->count();
+
+        return $cidadeCount;
+    }
 }
