@@ -40,5 +40,5 @@ $router->group(['prefix' => '/estado'], function () use ($router) {
     $router->get('/{id_estado}', 'EstadoController@estado_especifico');
 
     /*Obter total de usuários cadastrados por estado*/
-    $router->get('/quantidade/{$nome}', 'EstadoController@countEstado' );
+    $router->get('/quantidade/{nome}', 'EstadoController@countEstado' );
 });
