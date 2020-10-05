@@ -13,18 +13,14 @@ $router->group(['prefix' => '/user'], function () use ($router) {
 
 });
 
-//$router->group(['prefix' => '/endereco'], function () use ($router) {
-//
-//    /*Listagem de Endereços*/
-//    $router->get('/endereco', function () {
-//
-//    });
-//
-//    $router->get('/{id_endereco}', function ($id_endereco) {
-//        return $id_endereco;
-//    });
-//});
-//
+$router->group(['prefix' => '/endereco'], function () use ($router) {
+
+    /*Listagem de Endereços*/
+    $router->get('/', 'EnderecoController@index');
+
+    $router->get('/{id_endereco}', 'EnderecoController@endereco_especifico');
+});
+
 //$router->group(['prefix' => '/cidades'], function () use ($router) {
 //
 //    /*Listagem de Cidades*/
