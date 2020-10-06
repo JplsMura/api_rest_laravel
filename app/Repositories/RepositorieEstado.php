@@ -56,4 +56,20 @@ class RepositorieEstado
 
         return $estadoCount;
     }
+
+    /**
+     * @param $request
+     * @param $usuario
+     * @return mixed
+     */
+    public function updatedRegister($request, $usuario)
+    {
+
+        $userUpdated = Estado::where('id_estado', $usuario[0]['codestado'])->update([
+            'nome' => $request['estado_nome'],
+            'pais' => $request['pais']
+        ]);
+
+        return $userUpdated;
+    }
 }

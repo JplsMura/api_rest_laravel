@@ -57,4 +57,20 @@ class RepositorieCidade
 
         return $cidadeCount;
     }
+
+    /**
+     * @param $request
+     * @param $usuario
+     * @return mixed
+     */
+    public function updatedRegister($request, $usuario)
+    {
+
+        $userUpdated = Cidade::where('id_cidade', $usuario[0]['codcidade'])->update([
+            'nome' => $request['cidade_nome'],
+            'cep' => $request['cep']
+        ]);
+
+        return $userUpdated;
+    }
 }

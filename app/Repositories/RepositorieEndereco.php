@@ -46,4 +46,20 @@ class RepositorieEndereco
 
         return $createdEndereco;
     }
+
+    /**
+     * @param $request
+     * @param $usuario
+     * @return mixed
+     */
+    public function updatedRegister($request, $usuario)
+    {
+
+        $userUpdated = Endereco::where('id_endereco', $usuario[0]['codendereco'])->update([
+            'rua' => $request['rua'],
+            'numero' => $request['numero']
+        ]);
+
+        return $userUpdated;
+    }
 }

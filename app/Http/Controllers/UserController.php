@@ -109,6 +109,7 @@ class UserController extends Controller
         }
     }
 
+
     /**
      * @param Request $request
      * @param $id
@@ -121,7 +122,14 @@ class UserController extends Controller
 
             $usuario->push($this->usuario->getUserById($id));
 
+
             if($usuario->filter()->isNotEmpty()){
+
+                $userUpEnd = $this->endereco->updatedRegister($request, $usuario);
+
+                $userUpCid = $this->cidade->updatedRegister($request, $usuario);
+
+                $userUpEst = $this->estado->updatedRegister($request, $usuario);
 
                $usuario = $this->usuario->updateUsuario([
                    'id'   => $id,
